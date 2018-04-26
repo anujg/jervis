@@ -410,7 +410,7 @@ def call() {
                 node(label) {
                     stage("Checkout SCM") {
                         checkout global_scm
-                        sh 'git submodule add https://github.com/trilogy-group/aurea-central-jervis.git'
+                        sh 'git submodule add https://anujg@github.com/trilogy-group/aurea-central-jervis.git'
                         sh 'git submodule update --init'
                     }
                     stage("Build axis ${stageIdentifier}") {
@@ -458,7 +458,7 @@ def call() {
             Map stashMap = pipeline_generator.stashMap
             stage("Build Project") {
                 checkout global_scm
-                sh 'git submodule add https://github.com/trilogy-group/aurea-central-jervis.git'
+                sh 'git submodule add https://anujg@github.com/trilogy-group/aurea-central-jervis.git'
                 sh 'git submodule update --init'
                 withEnvSecretWrapper(pipeline_generator, jervisEnvList) {
                     environment_string = sh(script: 'env | LC_ALL=C sort', returnStdout: true).split('\n').join('\n    ')
@@ -505,7 +505,7 @@ def call() {
             if(generator.isMatrixBuild()) {
                 stage("Checkout Jenkinsfile") {
                     checkout global_scm
-                    sh 'git submodule add https://github.com/trilogy-group/aurea-central-jervis.git'
+                    sh 'git submodule add https://anujg@github.com/trilogy-group/aurea-central-jervis.git'
                     sh 'git submodule update --init'
                 }
             }
